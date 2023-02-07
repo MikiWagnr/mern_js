@@ -33,13 +33,15 @@ const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  * @returns {Array<number>} The given array after being sorted.
  */
 const selectionSort = (nums = []) => {
-    for (var i = 0; i < nums.length; i++) {
-        for (var j = 0; j < nums.length - i - 1; j++) {
-            if (nums[j] > nums[j + 1]) {
-                var temp = nums[j]
-                nums[j] = nums[j + 1]
-                nums[j + 1] = temp
+    for (let i = 0; i < nums.length; i++) {
+        let min = i
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[j] < nums[min]) {
+                min = j
             }
+        }
+        if (min !== i) {
+            [nums[i], nums[min]] = [nums[min], nums[i]]
         }
     }
     return nums
