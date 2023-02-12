@@ -9,7 +9,7 @@ const Form = () => {
 
     return(
         <div>
-            <h1>More Form</h1>
+            <h1>Hook Form</h1>
             <form>
                 <div>
                     <label>First Name</label>
@@ -32,6 +32,7 @@ const Form = () => {
                     <input type="text" onChange= {(e) => {setConfirmPassword(e.target.value)}} />
                 </div>
             </form>
+            <h2>Form Data</h2>
             <p>
                 First Name: {firstName} <br />
                 Last Name:{lastName} <br />
