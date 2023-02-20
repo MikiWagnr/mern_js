@@ -53,3 +53,13 @@ module.exports.deleteAnExistingjoke = (req, res) => {
             res.json({ message: 'Something went wrong', error: err })
         });
 }
+
+module.exports.randomizedJoke = (re,res) => {
+    Jokes.aggregate([{$sample:{size:1}}])
+        .then(randomJoke => {
+            res.json({results: randomJoke})
+        })
+        .cath((err) => {
+            re.json({message : 'Something went wrong'}, err)
+        })
+}
