@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://127.0.0.1:27017/name_of_your_DB', {
+const database = 'jokes_db'
+mongoose.connect(`mongodb://127.0.0.1:27017/name_of_your_DB${database}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

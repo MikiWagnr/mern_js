@@ -8,7 +8,8 @@ app.use(express.urlencoded({extended :true}))
 
 const createUser = () => {
     const newUser = {
-        // id: faker.database.mongodbObjectId(),
+
+        // id: faker.database.mongodbObjectId(), <---- creates a mongodb replica
         id: faker.datatype.uuid(),
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
