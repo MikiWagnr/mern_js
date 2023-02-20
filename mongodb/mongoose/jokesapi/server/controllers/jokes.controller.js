@@ -1,5 +1,6 @@
 const Jokes = require('../models/jokes.model.js');
 
+//all jokes
 module.exports.findAllJokes = (req, res) => {
     Jokes.find()
         .then((allJokes) => {
@@ -10,6 +11,7 @@ module.exports.findAllJokes = (req, res) => {
         });
 }
 
+//one joke
 module.exports.findOneSingleJoke = (req, res) => {
     Jokes.findOne({ _id: req.params.id })
         .then(one => {
@@ -20,6 +22,8 @@ module.exports.findOneSingleJoke = (req, res) => {
         });
 }
 
+
+//create joke
 module.exports.createNewjoke = (req, res) => {
     Jokes.create(req.body)
         .then(Joke => {
@@ -30,6 +34,7 @@ module.exports.createNewjoke = (req, res) => {
         });
 }
 
+//update joke
 module.exports.updateExistingjoke = (req, res) => {
     Jokes.findOneAndUpdate(
         { _id: req.params.id },
@@ -44,6 +49,7 @@ module.exports.updateExistingjoke = (req, res) => {
         });
 }
 
+//delete joke
 module.exports.deleteAnExistingjoke = (req, res) => {
     Jokes.deleteOne({ _id: req.params.id })
         .then(result => {
@@ -54,6 +60,7 @@ module.exports.deleteAnExistingjoke = (req, res) => {
         });
 }
 
+//random joke
 module.exports.randomizedJoke = (re,res) => {
     Jokes.aggregate([{$sample:{size:1}}])
         .then(randomJoke => {
