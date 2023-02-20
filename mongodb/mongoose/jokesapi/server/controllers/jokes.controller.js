@@ -7,7 +7,7 @@ module.exports.findAllJokes = (req, res) => {
             res.json({ results: allJokes })
         })
         .catch((err) => {
-            res.json({ message: 'Something went wrong', error: err })
+            res.status(400).json()
         });
 }
 
@@ -18,7 +18,7 @@ module.exports.findOneSingleJoke = (req, res) => {
             res.json({ results: one })
         })
         .catch((err) => {
-            res.json({ message: 'Something went wrong', error: err })
+            res.status(400).json()
         });
 }
 
@@ -30,7 +30,7 @@ module.exports.createNewjoke = (req, res) => {
             res.json({ results: Joke })
         })
         .catch((err) => {
-            res.json({ message: 'Something went wrong', error: err })
+            res.status(400).json()
         });
 }
 
@@ -45,7 +45,7 @@ module.exports.updateExistingjoke = (req, res) => {
             res.json({ results: updatedjoke })
         })
         .catch((err) => {
-            res.json({ message: 'Something went wrong', error: err })
+            res.status(400).json()
         });
 }
 
@@ -56,7 +56,7 @@ module.exports.deleteAnExistingjoke = (req, res) => {
             res.json({ result: result })
         })
         .catch((err) => {
-            res.json({ message: 'Something went wrong', error: err })
+            res.status(400).json()
         });
 }
 
@@ -67,6 +67,6 @@ module.exports.randomizedJoke = (re,res) => {
             res.json({results: randomJoke})
         })
         .cath((err) => {
-            re.json({message : 'Something went wrong'}, err)
+            res.status(400).json()
         })
 }
