@@ -98,13 +98,33 @@ const expected4 = [
  * @returns {Array<Objects>} The matched items.
  */
 function functionalFilterByKey(items, searchFor, searchBy) {
-    const newArr = []
-    for(let i = 0; i < items.length; i++){
-        if(items[i][searchBy] == searchFor){
-            newArr.push(items[i])
+    return items.filter(item => item[searchBy].toLowerCase().startsWith(searchFor.toLowerCase()))
+}
+
+function functionalFilterByKeyV2(items, searchFor, searchBy) {
+    const ret = [];
+    for (let i = 0; i < items.length; i++) {
+        if (items[i][searchBy].toLowerCase().startsWith(searchFor.toLowerCase())) {
+            ret.push(items[i])
         }
     }
-    return newArr
+    return ret;
+}
+
+function functionalFilterByKeyV3(items, searchFor, searchBy) {
+    const ret = [];
+    for (let i = 0; i < items.length; i++) {
+        let j = 0
+        for (j = 0; items[i][searchBy].length >= searchFor.length && j < searchFor.length; j++) {
+            if (items[i][searchBy].toLowerCase().charAt(j) !== searchFor.toLowerCase().charAt(j)) {
+                break;
+            }
+        }
+        if (j === searchFor.length) {
+            ret.push(items[i])
+        }
+    }
+    return ret;
 }
 
 
